@@ -1,0 +1,18 @@
+# Java / Maven
+backend/target/
+*.class
+*.jar
+
+# IDE
+.idea/
+**/.vscode/*
+!backend/.vscode/settings.json
+*.iml
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Segredos
+.env
+application-local.properties
