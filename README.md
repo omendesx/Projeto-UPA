@@ -11,7 +11,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow" alt="Status">
-  <img src="https://img.shields.io/badge/Java-17-red" alt="Java 17">
+  <img src="https://img.shields.io/badge/Java-21-red" alt="Java 21">
   <img src="https://img.shields.io/badge/Spring%20Boot-4-green" alt="Spring Boot">
   <img src="https://img.shields.io/badge/MySQL-blue" alt="MySQL">
   <img src="https://img.shields.io/badge/Frontend-HTML%2FCSS%2FJS-orange" alt="Frontend">
@@ -33,7 +33,7 @@
 
 ## 🛠️ Tecnologias Utilizadas
 
-* Java 17
+* Java 21
 * Spring Boot
 * Spring Data JPA
 * MySQL
