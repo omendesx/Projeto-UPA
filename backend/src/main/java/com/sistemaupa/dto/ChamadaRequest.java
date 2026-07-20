@@ -1,7 +1,11 @@
 package com.sistemaupa.dto;
 
-/*
- * PLACEHOLDER
- * DTO da chamada.
- * O código completo será adicionado na Sprint indicada pela documentação.
- */
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+public record ChamadaRequest(
+        @NotNull Long atendimentoId,
+        @NotBlank String destino,
+        @NotBlank String sala
+) {
+}

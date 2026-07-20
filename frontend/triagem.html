@@ -1,4 +1,87 @@
-<!--
-PLACEHOLDER: triagem.html
-O código completo será inserido na Sprint correspondente.
--->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triagem — Sistema UPA</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <h1>Triagem</h1>
+    <p data-current-user></p>
+    <button onclick="auth.logout()">Sair</button>
+</header>
+
+<main class="container">
+    <div class="grid">
+        <section class="card">
+            <h2>Fila da triagem</h2>
+            <button id="refreshQueue">Atualizar fila</button>
+            <div id="queue" class="list"></div>
+        </section>
+
+        <section class="card">
+            <h2>Registrar triagem</h2>
+
+            <form id="formTriagem" class="form-grid">
+                <label>
+                    Atendimento
+                    <input id="atendimentoId" name="atendimentoId" readonly required>
+                </label>
+
+                <label class="full">
+                    Sintomas
+                    <textarea name="sintomas"></textarea>
+                </label>
+
+                <label>
+                    Pressão
+                    <input name="pressaoArterial" placeholder="120/80">
+                </label>
+
+                <label>
+                    Temperatura
+                    <input name="temperatura" type="number" step="0.1">
+                </label>
+
+                <label>
+                    Frequência cardíaca
+                    <input name="frequenciaCardiaca" type="number">
+                </label>
+
+                <label>
+                    Nível de dor
+                    <input name="nivelDor" type="number" min="0" max="10">
+                </label>
+
+                <label>
+                    Classificação
+                    <select name="classificacaoRisco" required>
+                        <option value="">Selecione</option>
+                        <option value="VERMELHO">Vermelho</option>
+                        <option value="LARANJA">Laranja</option>
+                        <option value="AMARELO">Amarelo</option>
+                        <option value="VERDE">Verde</option>
+                        <option value="AZUL">Azul</option>
+                    </select>
+                </label>
+
+                <label class="full">
+                    Observação
+                    <textarea name="observacao"></textarea>
+                </label>
+
+                <button type="submit">Salvar triagem</button>
+            </form>
+
+            <p id="message" class="message"></p>
+        </section>
+    </div>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/triagem.js"></script>
+</body>
+</html>
