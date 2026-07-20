@@ -1,7 +1,11 @@
 package com.sistemaupa.dto;
 
-/*
- * PLACEHOLDER
- * DTO do prontuário.
- * O código completo será adicionado na Sprint indicada pela documentação.
- */
+import jakarta.validation.constraints.NotNull;
+
+public record ProntuarioRequest(
+        @NotNull Long atendimentoId,
+        String observacaoMedica,
+        String hipoteseClinica,
+        String conduta
+) {
+}

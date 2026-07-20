@@ -1,17 +1,18 @@
 # Visão do Produto
 
-Problema:
-Organizar o atendimento entre recepção, triagem e consultório.
+## Problema
+Organizar o fluxo entre recepção, triagem, painel de chamadas e consultório.
 
-Público-alvo:
+## Público-alvo
 Recepcionistas, enfermeiros, médicos e administradores.
 
-Objetivo:
-Criar um MVP que permita cadastrar, classificar, chamar e finalizar atendimentos.
+## Objetivo
+Entregar um MVP acadêmico funcional, simples e demonstrável em sala.
 
-Critérios do cadastro:
-- nome obrigatório;
-- motivo obrigatório;
-- gerar senha;
-- salvar no banco;
-- exibir mensagem de sucesso.
+## Escopo
+- Login por cargo
+- CRUD de funcionários
+- Cadastro de atendimento
+- Triagem e classificação
+- Painel com narração
+- Prontuário simplificado

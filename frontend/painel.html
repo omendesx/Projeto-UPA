@@ -1,4 +1,25 @@
-<!--
-PLACEHOLDER: painel.html
-O código completo será inserido na Sprint correspondente.
--->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Chamadas — Sistema UPA</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="panel-screen">
+<main>
+    <p>Paciente chamado</p>
+    <h1 id="senha">Aguardando</h1>
+    <h2 id="nome">—</h2>
+    <p id="destino">—</p>
+
+    <section class="recentes">
+        <h3>Últimos chamados</h3>
+        <div id="recentes"></div>
+    </section>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/painel.js"></script>
+</body>
+</html>

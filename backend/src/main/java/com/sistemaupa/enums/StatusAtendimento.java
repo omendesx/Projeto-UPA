@@ -1,7 +1,12 @@
 package com.sistemaupa.enums;
 
-/*
- * PLACEHOLDER
- * Enum de status do atendimento.
- * O código completo será adicionado na Sprint indicada pela documentação.
- */
+public enum StatusAtendimento {
+    AGUARDANDO_TRIAGEM,
+    CHAMADO_TRIAGEM,
+    EM_TRIAGEM,
+    AGUARDANDO_MEDICO,
+    CHAMADO_CONSULTORIO,
+    EM_ATENDIMENTO,
+    FINALIZADO,
+    CANCELADO
+}

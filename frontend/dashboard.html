@@ -1,4 +1,80 @@
-<!--
-PLACEHOLDER: dashboard.html
-O código completo será inserido na Sprint correspondente.
--->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — Sistema UPA</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <h1>Dashboard do Administrador</h1>
+    <p data-current-user></p>
+    <button onclick="auth.logout()">Sair</button>
+</header>
+
+<main class="container">
+    <section class="card">
+        <h2>Áreas do sistema</h2>
+
+        <div class="grid">
+            <a class="card menu-card" href="balcao.html">Balcão</a>
+            <a class="card menu-card" href="triagem.html">Triagem</a>
+            <a class="card menu-card" href="consultorio.html">Consultório</a>
+            <a class="card menu-card" href="painel.html">Painel público</a>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Funcionários</h2>
+
+        <form id="formUsuario" class="form-grid">
+            <input id="usuarioId" type="hidden">
+
+            <label>
+                Nome
+                <input name="nome" required>
+            </label>
+
+            <label>
+                E-mail
+                <input name="email" type="email" required>
+            </label>
+
+            <label>
+                Senha
+                <input name="senha" type="text" required>
+            </label>
+
+            <label>
+                Cargo
+                <select name="cargo" required>
+                    <option value="RECEPCIONISTA">Recepcionista</option>
+                    <option value="ENFERMEIRO">Enfermeiro</option>
+                    <option value="MEDICO">Médico</option>
+                    <option value="ADMIN">Administrador</option>
+                </select>
+            </label>
+
+            <label>
+                Ativo
+                <select name="ativo">
+                    <option value="true">Sim</option>
+                    <option value="false">Não</option>
+                </select>
+            </label>
+
+            <button type="submit">Salvar funcionário</button>
+            <button type="button" id="cancelEdit">Cancelar edição</button>
+        </form>
+
+        <p id="message" class="message"></p>
+        <div id="usuarios" class="list"></div>
+    </section>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

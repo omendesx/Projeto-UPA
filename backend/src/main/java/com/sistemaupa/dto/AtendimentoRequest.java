@@ -1,7 +1,15 @@
 package com.sistemaupa.dto;
 
-/*
- * PLACEHOLDER
- * DTO de cadastro de atendimento.
- * O código completo será adicionado na Sprint indicada pela documentação.
- */
+import jakarta.validation.constraints.NotBlank;
+
+import java.time.LocalDate;
+
+public record AtendimentoRequest(
+        @NotBlank String nome,
+        String cpf,
+        LocalDate dataNascimento,
+        String telefone,
+        @NotBlank String motivo,
+        boolean ambulancia
+) {
+}
