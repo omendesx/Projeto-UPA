@@ -58,3 +58,20 @@ ADMIN_EMAIL=admin@upa.com
 ADMIN_PASSWORD=admin123
 
 Altere essas credenciais no Railway antes da apresentação.
+
+## Deploy no Railway
+
+O `Dockerfile` da raiz empacota o front-end junto com o Spring Boot. No
+Railway, publique a raiz deste repositório e configure estas variáveis:
+
+```text
+DATABASE_URL=jdbc:postgresql://HOST/BANCO?sslmode=require&channelBinding=require
+DATABASE_USERNAME=USUARIO
+DATABASE_PASSWORD=SENHA
+ADMIN_EMAIL=admin@upa.com
+ADMIN_PASSWORD=uma-senha-forte
+```
+
+Não inclua usuário e senha dentro de `DATABASE_URL`. O Railway fornece a
+variável `PORT` automaticamente. Depois do deploy, a interface e a API ficam
+no mesmo domínio gerado pelo Railway.

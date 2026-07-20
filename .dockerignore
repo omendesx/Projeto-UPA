@@ -1,0 +1,7 @@
+.git
+.idea
+**/.vscode
+backend/target
+backend/data
+backend/application-local.properties
+*.log
