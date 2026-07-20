@@ -1,7 +1,10 @@
 package com.sistemaupa.dto;
 
-/*
- * PLACEHOLDER
- * DTO do login.
- * O código completo será adicionado na Sprint indicada pela documentação.
- */
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
+public record LoginRequest(
+        @Email @NotBlank String email,
+        @NotBlank String senha
+) {
+}

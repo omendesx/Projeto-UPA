@@ -1,4 +1,71 @@
-<!--
-PLACEHOLDER: balcao.html
-O código completo será inserido na Sprint correspondente.
--->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balcão — Sistema UPA</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <h1>Balcão</h1>
+    <p data-current-user></p>
+    <button onclick="auth.logout()">Sair</button>
+</header>
+
+<main class="container">
+    <section class="card">
+        <h2>Novo atendimento</h2>
+
+        <form id="formAtendimento" class="form-grid">
+            <label>
+                Nome
+                <input name="nome" required>
+            </label>
+
+            <label>
+                CPF
+                <input name="cpf">
+            </label>
+
+            <label>
+                Data de nascimento
+                <input name="dataNascimento" type="date">
+            </label>
+
+            <label>
+                Telefone
+                <input name="telefone">
+            </label>
+
+            <label class="full">
+                Motivo
+                <textarea name="motivo" required></textarea>
+            </label>
+
+            <label>
+                Ambulância
+                <select name="ambulancia">
+                    <option value="false">Não</option>
+                    <option value="true">Sim</option>
+                </select>
+            </label>
+
+            <button type="submit">Cadastrar atendimento</button>
+        </form>
+
+        <p id="message" class="message"></p>
+    </section>
+
+    <section class="card">
+        <h2>Botão de pânico</h2>
+        <button class="danger" id="panicButton">Acionar alerta visual</button>
+        <p id="panicMessage" class="message"></p>
+    </section>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/balcao.js"></script>
+</body>
+</html>

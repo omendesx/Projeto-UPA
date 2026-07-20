@@ -1,4 +1,94 @@
-<!--
-PLACEHOLDER: consultorio.html
-O código completo será inserido na Sprint correspondente.
--->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultório — Sistema UPA</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <h1>Consultório</h1>
+    <p data-current-user></p>
+    <button onclick="auth.logout()">Sair</button>
+</header>
+
+<main class="container">
+    <div class="grid">
+        <section class="card">
+            <h2>Fila médica</h2>
+            <button id="refreshQueue">Atualizar fila</button>
+            <div id="queue" class="list"></div>
+        </section>
+
+        <section class="card">
+            <h2>Atendimento médico</h2>
+
+            <div id="patientData" class="card">
+                Selecione um paciente.
+            </div>
+
+            <form id="formProntuario" class="form-grid">
+                <input id="atendimentoId" name="atendimentoId" type="hidden">
+
+                <label class="full">
+                    Observação médica
+                    <textarea name="observacaoMedica"></textarea>
+                </label>
+
+                <label class="full">
+                    Hipótese clínica
+                    <textarea name="hipoteseClinica"></textarea>
+                </label>
+
+                <label class="full">
+                    Conduta
+                    <textarea name="conduta"></textarea>
+                </label>
+
+                <button type="submit">Salvar prontuário</button>
+            </form>
+
+            <hr>
+
+            <form id="formSolicitacao" class="form-grid">
+                <input id="prontuarioId" name="prontuarioId" type="hidden">
+
+                <label>
+                    Tipo
+                    <select name="tipo">
+                        <option value="EXAME">Exame</option>
+                        <option value="MEDICACAO">Medicação</option>
+                        <option value="TRANSFERENCIA">Transferência</option>
+                        <option value="OBSERVACAO">Observação</option>
+                    </select>
+                </label>
+
+                <label>
+                    Prioridade
+                    <select name="prioridade">
+                        <option value="NORMAL">Normal</option>
+                        <option value="ALTA">Alta</option>
+                    </select>
+                </label>
+
+                <label class="full">
+                    Descrição
+                    <textarea name="descricao" required></textarea>
+                </label>
+
+                <button type="submit">Criar solicitação</button>
+            </form>
+
+            <button id="finishButton">Finalizar atendimento</button>
+
+            <p id="message" class="message"></p>
+        </section>
+    </div>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/consultorio.js"></script>
+</body>
+</html>

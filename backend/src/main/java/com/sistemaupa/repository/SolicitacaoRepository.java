@@ -1,7 +1,11 @@
 package com.sistemaupa.repository;
 
-/*
- * PLACEHOLDER
- * Repository de solicitação.
- * O código completo será adicionado na Sprint indicada pela documentação.
- */
+import com.sistemaupa.entity.Solicitacao;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface SolicitacaoRepository extends JpaRepository<Solicitacao, Long> {
+
+    List<Solicitacao> findByProntuarioId(Long prontuarioId);
+}
