@@ -13,4 +13,4 @@ Como recepcionista, quero cadastrar um paciente e gerar uma senha.
 Como enfermeiro, quero registrar sinais e classificação de risco.
 
 ## HU05 — Consulta
-Como médico, quero registrar o prontuário e finalizar o atendimento.  a
+Como médico, quero registrar o prontuário e finalizar o atendimento.
