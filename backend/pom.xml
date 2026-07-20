@@ -16,7 +16,7 @@
     <artifactId>backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>sistema-upa</name>
-    <description>Back-End acadêmico do Sistema UPA</description>
+    <description>API acadêmica do Sistema UPA</description>
 
     <properties>
         <java.version>17</java.version>

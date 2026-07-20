@@ -1,7 +1,7 @@
 package com.sistemaupa.repository;
 
-/*
- * PLACEHOLDER
- * Repository de paciente.
- * O código completo será adicionado na Sprint indicada pela documentação.
- */
+import com.sistemaupa.entity.Paciente;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PacienteRepository extends JpaRepository<Paciente, Long> {
+}
