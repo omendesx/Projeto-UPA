@@ -30,7 +30,8 @@ Projeto acadêmico fullstack para simular o fluxo de atendimento de uma UPA.
 
 ### Back-End
 
-Configure as variáveis:
+Sem variáveis de ambiente, o back-end usa um banco H2 local salvo em
+`backend/data`. Para usar PostgreSQL, configure as variáveis:
 
 DATABASE_URL=jdbc:postgresql://HOST/BANCO?sslmode=require
 DATABASE_USERNAME=USUARIO
@@ -42,9 +43,14 @@ Depois:
 cd backend
 mvnw.cmd spring-boot:run
 
+Com o back-end iniciado, acesse `http://localhost:8080/`. O Spring tambÃ©m
+serve os arquivos da pasta `frontend`, portanto nÃ£o Ã© necessÃ¡rio iniciar o
+Live Server separadamente.
+
 ### Front-End
 
-Abra a pasta frontend no VS Code e execute o index.html com Live Server.
+Os arquivos do front-end ficam na pasta `frontend` e sÃ£o incluÃ­dos
+automaticamente pelo Maven ao executar ou empacotar o back-end.
 
 ## Usuário administrador inicial
 

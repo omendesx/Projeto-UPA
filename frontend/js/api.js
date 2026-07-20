@@ -1,8 +1,6 @@
-const API_URL =
-    location.hostname === "localhost" ||
-    location.hostname === "127.0.0.1"
-        ? "http://localhost:8080/api"
-        : "https://SEU-BACKEND.up.railway.app/api";
+const API_URL = location.port === "5500"
+    ? "http://localhost:8080/api"
+    : `${location.origin}/api`;
 
 async function apiRequest(path, options = {}) {
     const response = await fetch(`${API_URL}${path}`, {
