@@ -13,7 +13,7 @@
   <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow" alt="Status">
   <img src="https://img.shields.io/badge/Java-21-red" alt="Java 21">
   <img src="https://img.shields.io/badge/Spring%20Boot-4-green" alt="Spring Boot">
-  <img src="https://img.shields.io/badge/NeonDB-green" alt="NeonDB">
+  <img src="https://img.shields.io/badge/PostgreSQL-Neon-blue?logo=postgresql">
   <img src="https://img.shields.io/badge/Frontend-HTML%2FCSS%2FJS-orange" alt="Frontend">
 </p>
 
