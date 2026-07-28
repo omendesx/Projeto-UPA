@@ -14,12 +14,19 @@ async function carregarUsuarios() {
         cache = await apiRequest("/usuarios");
 
         usuarios.innerHTML = cache.map(user => `
-            <article class="list-item">
-                <strong>${user.nome}</strong>
-                <p>${user.email}</p>
-                <p>${user.cargo} — ${user.ativo ? "Ativo" : "Inativo"}</p>
-                <button onclick="editarUsuario(${user.id})">Editar</button>
-                <button class="danger" onclick="excluirUsuario(${user.id})">Excluir</button>
+            <article class="user-row">
+                <div class="user-name"><span class="user-avatar">${user.nome.charAt(0).toUpperCase()}</span>${user.nome}</div>
+                <span class="user-email">${user.email}</span>
+                <span class="cargo cargo-${user.cargo.toLowerCase()}">${user.cargo}</span>
+                <span class="status ${user.ativo ? "" : "inactive"}">${user.ativo ? "Ativo" : "Inativo"}</span>
+                <div class="actions">
+                    <button title="Editar ${user.nome}" onclick="editarUsuario(${user.id})">
+                        <img src="assets/imagens/edit-svgrepo-com.svg" alt="Editar" />
+                    </button>
+                    <button class="danger" title="Excluir ${user.nome}" onclick="excluirUsuario(${user.id})">
+                        <img src="assets/imagens/trash-full-svgrepo-com.svg" alt="Excluir" />
+                    </button>
+                </div>
             </article>
         `).join("");
     } catch (error) {
