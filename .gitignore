@@ -7,7 +7,12 @@ backend/data/
 # IDE
 .idea/
 **/.vscode/*
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json
 !backend/.vscode/settings.json
+!backend/.vscode/launch.json
+!backend/.vscode/tasks.json
 *.iml
 
 # Sistema operacional

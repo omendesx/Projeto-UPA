@@ -24,9 +24,11 @@ async function carregarFila() {
 
         queue.innerHTML = atendimentos.map(item => `
             <article class="list-item">
-                <strong>${item.senha} — ${item.paciente.nome}</strong>
-                <p>Risco: ${item.classificacaoRisco}</p>
-                <p>${item.motivo}</p>
+                <strong>${item.senha}</strong>
+                <img src="assets/imagens/user.jpeg" alt="Paciente" class="patient-image">
+                <p> ${item.paciente.nome}</p>
+                <p class="${item.classificacaoRisco.toLowerCase()}"></p>
+
                 <button onclick="selecionarPaciente(${item.id})">
                     Chamar e atender
                 </button>
