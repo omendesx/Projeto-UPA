@@ -92,7 +92,11 @@ public class AtendimentoService {
 
     public List<Atendimento> filaMedico() {
         return atendimentoRepository
-                .findByStatusOrderByDataHoraEntradaAsc(StatusAtendimento.AGUARDANDO_MEDICO)
+                .findByStatusInOrderByDataHoraEntradaAsc(List.of(
+                        StatusAtendimento.AGUARDANDO_MEDICO,
+                        StatusAtendimento.CHAMADO_CONSULTORIO,
+                        StatusAtendimento.EM_ATENDIMENTO
+                ))
                 .stream()
                 .sorted(
                         Comparator.comparing(Atendimento::isAmbulancia).reversed()

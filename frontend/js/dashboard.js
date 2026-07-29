@@ -8,12 +8,19 @@ const message = document.querySelector("#message");
 const cancelEdit = document.querySelector("#cancelEdit");
 
 let cache = [];
+let paginaUsuarios = 1;
 
-async function carregarUsuarios() {
-    try {
-        cache = await apiRequest("/usuarios");
-
-        usuarios.innerHTML = cache.map(user => `
+function renderizarUsuarios() {
+    paginaUsuarios = renderPaginatedList({
+        container: usuarios,
+        items: cache,
+        page: paginaUsuarios,
+        emptyMessage: "Nenhum funcionário cadastrado.",
+        onPageChange: page => {
+            paginaUsuarios = page;
+            renderizarUsuarios();
+        },
+        renderItem: user => `
             <article class="list-item">
                 <strong>${user.nome}</strong>
                 <p>${user.email}</p>
@@ -21,7 +28,14 @@ async function carregarUsuarios() {
                 <button onclick="editarUsuario(${user.id})">Editar</button>
                 <button class="danger" onclick="excluirUsuario(${user.id})">Excluir</button>
             </article>
-        `).join("");
+        `
+    });
+}
+
+async function carregarUsuarios() {
+    try {
+        cache = await apiRequest("/usuarios");
+        renderizarUsuarios();
     } catch (error) {
         message.textContent = error.message;
     }

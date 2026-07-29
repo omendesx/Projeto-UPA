@@ -223,3 +223,19 @@ section + section {
         overflow-x: auto;
     }
 }
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.pagination span {
+    white-space: nowrap;
+}
+
+.pagination button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}

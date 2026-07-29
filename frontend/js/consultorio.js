@@ -12,18 +12,20 @@ const finishButton = document.querySelector("#finishButton");
 const message = document.querySelector("#message");
 
 let currentAtendimento = null;
+let filaMedica = [];
+let paginaFila = 1;
 
-async function carregarFila() {
-    try {
-        const atendimentos = await apiRequest("/atendimentos/fila/medico");
-
-        if (atendimentos.length === 0) {
-            queue.innerHTML = "<p>Nenhum paciente aguardando.</p>";
-            return;
-        }
-
-        queue.innerHTML = atendimentos.map(item => `
-
+function renderizarFila() {
+    paginaFila = renderPaginatedList({
+        container: queue,
+        items: filaMedica,
+        page: paginaFila,
+        emptyMessage: "Nenhum paciente aguardando.",
+        onPageChange: page => {
+            paginaFila = page;
+            renderizarFila();
+        },
+        renderItem: item => `
           <div class="queue-container">
           <article class="list-item">
               <strong>${item.senha.replace("-","")}</strong>
@@ -32,12 +34,19 @@ async function carregarFila() {
               <p class="${item.classificacaoRisco.toLowerCase()}"></p>
 
               <button onclick="selecionarPaciente(${item.id})">
-                  Chamar e atender
+                  ${item.status === "AGUARDANDO_MEDICO" ? "Chamar" : "Retomar"}
               </button>
           </article>
 
           </div>
-        `).join("");
+        `
+    });
+}
+
+async function carregarFila() {
+    try {
+        filaMedica = await apiRequest("/atendimentos/fila/medico");
+        renderizarFila();
     } catch (error) {
         queue.innerHTML = `<p>${error.message}</p>`;
     }
@@ -50,6 +59,9 @@ window.selecionarPaciente = async id => {
 
         atendimentoId.value = id;
 
+        formProntuario.reset();
+        prontuarioId.value = "";
+
         patientData.innerHTML = `
             <strong>${currentAtendimento.paciente.nome}</strong>
             <p>Senha: ${currentAtendimento.senha}</p>
@@ -57,18 +69,36 @@ window.selecionarPaciente = async id => {
             <p>Sintomas: ${triagem.sintomas || "Não informado"}</p>
             <p>Pressão: ${triagem.pressaoArterial || "Não informada"}</p>
             <p>Dor: ${triagem.nivelDor ?? "Não informada"}</p>
+            <p>Temperatura: ${triagem.temperatura ?? "Não informada"}</p>
+            <p>Frequência cardíaca: ${triagem.frequenciaCardiaca ?? "Não informada"}</p>
+            <p>Obs: ${triagem.observacoes ?? "Não informada"}</p>
+
         `;
 
-        await apiRequest("/chamadas", {
-            method: "POST",
-            body: JSON.stringify({
-                atendimentoId: id,
-                destino: "CONSULTORIO",
-                sala: "Consultório 01"
-            })
-        });
+        if (currentAtendimento.status === "AGUARDANDO_MEDICO") {
+            await apiRequest("/chamadas", {
+                method: "POST",
+                body: JSON.stringify({
+                    atendimentoId: id,
+                    destino: "CONSULTORIO",
+                    sala: "Consultório 01"
+                })
+            });
 
-        message.textContent = "Paciente chamado para o consultório.";
+            message.textContent = "Paciente chamado para o consultório.";
+            await carregarFila();
+        } else if (currentAtendimento.status === "EM_ATENDIMENTO") {
+            const prontuario = await apiRequest(`/prontuarios/atendimento/${id}`);
+            prontuarioId.value = prontuario.id;
+            formProntuario.elements.observacaoMedica.value =
+                prontuario.observacaoMedica || "";
+            formProntuario.elements.hipoteseClinica.value =
+                prontuario.hipoteseClinica || "";
+            formProntuario.elements.conduta.value = prontuario.conduta || "";
+            message.textContent = "Atendimento retomado.";
+        } else {
+            message.textContent = "Paciente chamado anteriormente. Atendimento retomado.";
+        }
     } catch (error) {
         message.textContent = error.message;
     }
