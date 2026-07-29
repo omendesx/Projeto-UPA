@@ -23,16 +23,20 @@ async function carregarFila() {
         }
 
         queue.innerHTML = atendimentos.map(item => `
-            <article class="list-item">
-                <strong>${item.senha}</strong>
-                <img src="assets/imagens/user.jpeg" alt="Paciente" class="patient-image">
-                <p> ${item.paciente.nome}</p>
-                <p class="${item.classificacaoRisco.toLowerCase()}"></p>
 
-                <button onclick="selecionarPaciente(${item.id})">
-                    Chamar e atender
-                </button>
-            </article>
+          <div class="queue-container">
+          <article class="list-item">
+              <strong>${item.senha.replace("-","")}</strong>
+              <img src="assets/imagens/user.jpeg" alt="Paciente" class="patient-image">
+              <p> ${item.paciente.nome}</p>
+              <p class="${item.classificacaoRisco.toLowerCase()}"></p>
+
+              <button onclick="selecionarPaciente(${item.id})">
+                  Chamar e atender
+              </button>
+          </article>
+
+          </div>
         `).join("");
     } catch (error) {
         queue.innerHTML = `<p>${error.message}</p>`;
