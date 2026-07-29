@@ -26,13 +26,10 @@ public class ProntuarioService {
 
     @Transactional
     public Prontuario criar(ProntuarioRequest request) {
-        if (repository.existsByAtendimentoId(request.atendimentoId())) {
-            throw new IllegalArgumentException("Este atendimento já possui prontuário.");
-        }
-
         Atendimento atendimento = atendimentoService.buscar(request.atendimentoId());
 
-        Prontuario prontuario = new Prontuario();
+        Prontuario prontuario = repository.findByAtendimentoId(request.atendimentoId())
+                .orElseGet(Prontuario::new);
         prontuario.setAtendimento(atendimento);
         prontuario.setObservacaoMedica(request.observacaoMedica());
         prontuario.setHipoteseClinica(request.hipoteseClinica());

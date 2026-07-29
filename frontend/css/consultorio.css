@@ -251,7 +251,7 @@ p {
 }
 
 .laranja,
-.amarelo {
+.amarelo,.vermelho,.verde,.azul {
   width: 20px;
   height: 20px;
   min-width: 20px;
@@ -267,7 +267,22 @@ p {
 .amarelo {
   background-color: #ffd700;
 }
+.vermelho{
+  background-color: red;
+}
+.verde{
+  background-color: green;
+}
+.azul{
+  background-color: blue;
+}
 
+@media (max-width: 1450px) {
+  .full{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 @media (max-width: 1150px) {
   .grid {
     align-items: stretch;
@@ -281,6 +296,7 @@ p {
   .card-queue {
     flex-basis: 100%;
     max-width: 850px;
+
   }
 
 }
@@ -302,4 +318,20 @@ p {
   .full {
     justify-content: flex-start;
   }
+}
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.pagination span {
+  white-space: nowrap;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
