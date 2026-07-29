@@ -1,41 +1,152 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login — Sistema UPA</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProntoFlow UPA - Login</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body>
-<header>
-    <a href="index.html">← Início</a>
-    <h1>Login</h1>
-</header>
+<body class="bg-upa-page">
 
-<main class="container">
-    <section class="card">
-        <h2>Entrar no sistema</h2>
+  <main class="login-container">
+    <section class="branding-section">
+      <div>
+        <div class="logo-box">
+          <svg width="42" height="42" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 6C16 4.89543 16.8954 4 18 4H22C23.1046 4 24 4.89543 24 6V16H34C35.1046 16 36 16.8954 36 18V22C36 23.1046 35.1046 24 34 24H24V34C24 35.1046 23.1046 36 22 36H18C16.8954 36 16 35.1046 16 34V24H6C4.89543 24 4 23.1046 4 22V18C4 16.8954 4.89543 16 6 16H16V6Z" fill="#059669"/>
+            <path d="M12 12H28V28H12V12Z" fill="#0284C7" fill-opacity="0.3"/>
+          </svg>
+          <div class="brand-name">
+            <span class="title-primary">ProntoFlow</span>
+            <span class="title-secondary">UPA</span>
+          </div>
+        </div>
 
-        <form id="formLogin" class="form-grid">
-            <label class="full">
-                E-mail
-                <input name="email" type="email" required>
+        <h1 class="main-title">Sistema Inteligente de Atendimento</h1>
+        <p class="main-subtitle">Tecnologia que transforma o atendimento e melhora a experiência de todos.</p>
+
+        <div class="feature-list">
+          <div class="feature-card">
+            <div class="feature-icon icon-green"><i data-lucide="users"></i></div>
+            <div>
+              <h3>Atendimento ágil e organizado</h3>
+              <p>Gestão eficiente de filas, triagens e consultas.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon icon-blue"><i data-lucide="shield-check"></i></div>
+            <div>
+              <h3>Informações seguras</h3>
+              <p>Seus dados protegidos com tecnologia de ponta.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon icon-purple"><i data-lucide="bar-chart-3"></i></div>
+            <div>
+              <h3>Relatórios inteligentes</h3>
+              <p>Dados e indicadores para decisões rápidas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-section">
+      <div class="login-card">
+        <div class="icon-header">
+          <div class="lock-circle"><i data-lucide="lock"></i></div>
+        </div>
+
+        <div class="card-title-box">
+          <h2>Acesse sua conta</h2>
+          <p>Entre com suas credenciais para acessar o sistema.</p>
+        </div>
+
+        <form id="formLogin" class="login-form">
+          <div class="input-group">
+            <label>Usuário</label>
+            <div class="input-wrapper">
+              <span class="input-icon"><i data-lucide="user"></i></span>
+              <input name="email" type="email" required placeholder="Digite seu usuário">
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Senha</label>
+            <div class="input-wrapper">
+              <span class="input-icon"><i data-lucide="lock"></i></span>
+              <input id="inputSenha" name="senha" type="password" required placeholder="Digite sua senha">
+              <button type="button" class="btn-toggle-pass" id="btnToggleSenha">
+                <i data-lucide="eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-options">
+            <label class="remember-me">
+              <input type="checkbox">
+              <span>Lembrar meu acesso</span>
             </label>
+            <a href="#" class="forgot-pass">Esqueceu sua senha?</a>
+          </div>
 
-            <label class="full">
-                Senha
-                <input name="senha" type="password" required>
-            </label>
+          <button type="submit" class="btn-primary">
+            <i data-lucide="arrow-right"></i>
+            <span>Entrar no sistema</span>
+          </button>
 
-            <button type="submit">Entrar</button>
+          <div class="divider"><span>ou</span></div>
+
+          <button type="button" class="btn-sso">
+            <i data-lucide="shield"></i>
+            <span>Entrar com single sign-on (SSO)</span>
+          </button>
         </form>
 
         <p id="message" class="message"></p>
+      </div>
     </section>
-</main>
+  </main>
 
-<script src="js/api.js"></script>
-<script src="js/auth.js"></script>
-<script src="js/login.js"></script>
+  <footer class="footer-bar">
+    <div class="footer-container">
+      <div class="footer-item">
+        <i data-lucide="shield-check"></i>
+        <span>Seus dados estão protegidos com segurança.</span>
+      </div>
+      <div>© 2024 ProntoFlow UPA. Todos os direitos reservados.</div>
+      <div class="footer-item flex-gap">
+        <div class="footer-item">
+          <i data-lucide="headset"></i>
+          <span>Suporte: (11) 4002-8922</span>
+        </div>
+        <span class="divider-pipe">|</span>
+        <span class="version-tag">v1.0.0</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/login.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (window.lucide) lucide.createIcons();
+
+      const btnToggle = document.getElementById("btnToggleSenha");
+      const inputSenha = document.getElementById("inputSenha");
+
+      if (btnToggle && inputSenha) {
+        btnToggle.addEventListener("click", () => {
+          inputSenha.type = inputSenha.type === "password" ? "text" : "password";
+        });
+      }
+    });
+  </script>
 </body>
 </html>
