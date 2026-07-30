@@ -25,11 +25,9 @@
 
 body {
     min-height: 100vh;
-    display: grid;
-    grid-template-rows: 140px minmax(0, 1fr) 96px;
-    gap: 28px;
-    padding-bottom: 33px;
-    overflow: hidden;
+    
+    
+    
     color: var(--branco);
     background: 
     radial-gradient(circle at 30% 55%, #00483d55, transparent 35%),
@@ -43,20 +41,11 @@ body {
 
 main {
     min-height: 0;
-    margin-inline: 31px;
-    display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-    grid-template-rows: auto 1fr auto auto;
+    margin: 0;
     gap: 0 var(--espaco);
 }
 
-/*Posiciona o conteúdo dentro do cartão esquerdo */
-main > :not(.recentes) {
-    grid-column: 1;
-    position: relative;
-    z-index: 1;
-    margin-inline: 38px;
-}
+
 
 /* Painel de chamada recentes fica a direita*/
 .recentes {
@@ -74,22 +63,34 @@ main > :not(.recentes) {
 
 /* Fundo do cartão esquerdo*/
 
-main::before {
-    content: "";
-    grid-column: 1;
-    grid-row: 1 / 5;
-    z-index: 0;
+section {
+    width: 580px;
+    height: 300px;
+    
+    border-radius: 20px;
     border: 1px solid var(--linha);
     border-radius: var(--raio);
-    background: linear-gradient(145deg, #04342f, var(--cartao-escuro));
+    background: linear-gradient(145deg, #03233a, var(--cartao-escuro));
+    
 }
+
+.painel-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+
 
 /* Título da chamada*/
 
 .chamada-titulo {
-    grid-row: 1;
+  
     align-self: end;
-    margin-top: 36px;
+    margin-top: 0;
     color: var(--verde);
     font-size: clamp(1rem, 1.7vw, 1.6rem);
     font-weight: 700;
@@ -97,12 +98,12 @@ main::before {
 
 /*Senha principal*/
 #senha {
-    grid-row: 2;
+    
     align-self: center;
     max-width: 100%;
-    overflow: hidden;
+    
     color: var(--verde);
-    font-size: clamp(7rem, 15vw, 15rem);
+    font-size: 4rem;
     line-height: 0.9;
     text-align: center;
     text-transform: uppercase;
@@ -112,24 +113,24 @@ main::before {
 
 /* Nome do paciente */
 #nome {
-    grid-row: 3;
+    
     padding-bottom: 24px;
-    border-bottom: 1px solid var(--linha);
-    font-size: clamp(2rem, 4vw, 3.2rem);
+    
+    font-size: 3rem;
     text-align: center;
 }
 
 /*Destino */
 
 #destino {
-    grid-row: 4;
-    margin-block: 38px 70px;
-    padding: 34px 20px;
+    
+    
+    
     border: 1px solid #075f61;
     border-radius: 14px;
     color: var(--azul);
     background: #02332f66;
-    font-size: clamp(1.4rem, 2.5vw, 2.3rem);
+    font-size: 1.8rem;
     font-weight: 700;
     text-align: center;
     text-transform: uppercase;
@@ -145,34 +146,32 @@ main::before {
     align-items: center;
     padding-inline: 42px;
     border-bottom: 1px solid #075078;
+    height: 120px;
 }
 
 /* Logo e nome do sistema*/
 .marca {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: 32px;
+    gap: 20px;
 }
 
-.marca-simbolo {
+.marca-texto {
+    color: #013173;
+}
+
+.marca-texto span {
+    color: #019948;
+}
+/*.marca-simbolo {
+    position: relative;
     width: 84px;
     height: 84px;
-    display: grid;
-    place-items: center;
     flex-shrink: 0;
     overflow: visible;
 }
-
-.marca-simbolo img {
-    width: 84px;
-    height: 84px;
-    display: block;
-    object-fit: contain;
-    transform: scale(1.45);
-}
-
-/* ProntFlow e UPA*/
-
+    
 .marca-texto {
     display: flex;
     flex-direction: column;
@@ -182,7 +181,7 @@ main::before {
 .marca-texto strong {
     font-size: 36px;
 }
-
+    
 .marca-texto strong span,
 .marca-texto small{
     color: var(--verde)
@@ -192,7 +191,20 @@ main::before {
     margin-top: 6px;
     font-size: 32px;
     font-weight: 700;
+}*/
+
+
+#logo-pronto-flow {
+    width: 150px;
 }
+
+/* ProntFlow e UPA*/
+
+
+.panel-screen {
+    margin: 0;
+}
+
 
 /* Título Central */
 .painel-cabecalho > h1 {
