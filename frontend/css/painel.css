@@ -25,7 +25,11 @@
 
 body {
     min-height: 100vh;
-    padding: var(--espaco);
+    display: grid;
+    grid-template-rows: 140px minmax(0, 1fr) 96px;
+    gap: 28px;
+    padding-bottom: 33px;
+    overflow: hidden;
     color: var(--branco);
     background: 
     radial-gradient(circle at 30% 55%, #00483d55, transparent 35%),
@@ -38,16 +42,20 @@ body {
 ======================================== */
 
 main {
-    min-height: calc(100vh - 60px);
+    min-height: 0;
+    margin-inline: 31px;
     display: grid;
-    grid-template-columns: 1.15fr 1fr;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
     grid-template-rows: auto 1fr auto auto;
     gap: 0 var(--espaco);
 }
 
-/*Elemnetos de chamada atual ficam à esquerda*/
+/*Posiciona o conteúdo dentro do cartão esquerdo */
 main > :not(.recentes) {
     grid-column: 1;
+    position: relative;
+    z-index: 1;
+    margin-inline: 38px;
 }
 
 /* Painel de chamada recentes fica a direita*/
@@ -58,4 +66,196 @@ main > :not(.recentes) {
     border: 1px solid var(--linha);
     border-radius: var(--raio);
     background: linear-gradient(145deg, #03233a, var(--cartao-escuro));
+}
+
+/* ========================================
+   3. CARTÃO DA CHAMADA ATUAL
+======================================== */
+
+/* Fundo do cartão esquerdo*/
+
+main::before {
+    content: "";
+    grid-column: 1;
+    grid-row: 1 / 5;
+    z-index: 0;
+    border: 1px solid var(--linha);
+    border-radius: var(--raio);
+    background: linear-gradient(145deg, #04342f, var(--cartao-escuro));
+}
+
+/* Título da chamada*/
+
+.chamada-titulo {
+    grid-row: 1;
+    align-self: end;
+    margin-top: 36px;
+    color: var(--verde);
+    font-size: clamp(1rem, 1.7vw, 1.6rem);
+    font-weight: 700;
+}
+
+/*Senha principal*/
+#senha {
+    grid-row: 2;
+    align-self: center;
+    max-width: 100%;
+    overflow: hidden;
+    color: var(--verde);
+    font-size: clamp(7rem, 15vw, 15rem);
+    line-height: 0.9;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 0 30px #25dc6840;
+    white-space: nowrap;
+}
+
+/* Nome do paciente */
+#nome {
+    grid-row: 3;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--linha);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    text-align: center;
+}
+
+/*Destino */
+
+#destino {
+    grid-row: 4;
+    margin-block: 38px 70px;
+    padding: 34px 20px;
+    border: 1px solid #075f61;
+    border-radius: 14px;
+    color: var(--azul);
+    background: #02332f66;
+    font-size: clamp(1.4rem, 2.5vw, 2.3rem);
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* ========================================
+   4. CABEÇALHO
+======================================== */
+
+.painel-cabecalho {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    align-items: center;
+    padding-inline: 42px;
+    border-bottom: 1px solid #075078;
+}
+
+/* Logo e nome do sistema*/
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.marca-simbolo {
+    width: 84px;
+    height: 84px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    overflow: visible;
+}
+
+.marca-simbolo img {
+    width: 84px;
+    height: 84px;
+    display: block;
+    object-fit: contain;
+    transform: scale(1.45);
+}
+
+/* ProntFlow e UPA*/
+
+.marca-texto {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.marca-texto strong {
+    font-size: 36px;
+}
+
+.marca-texto strong span,
+.marca-texto small{
+    color: var(--verde)
+}
+
+.marca-texto small {
+    margin-top: 6px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+/* Título Central */
+.painel-cabecalho > h1 {
+    font-family: "Arial Narrow", Arial, sans-serif;
+    font-size: 48px;
+    text-align: center;
+}
+
+/* Relógio e data */
+.data-hora {
+    justify-self: end;
+    text-align: center;
+}
+
+.data-hora > div {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.icone-relogio {
+    font-size: 64px;
+    line-height: 1;
+}
+
+#relogio {
+    font-size: 58px;
+    font-weight: 700;
+}
+
+#data-painel {
+    margin-top:5px;
+    font-size: 18px;
+}
+
+/* ========================================
+   5. AVISO INFERIOR
+======================================== */
+
+.painel-rodape {
+    margin-inline: 31px;
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+    align-items: center;
+    border: 1px solid #07834d;
+    border-radius: 16px;
+    background: linear-gradient(90deg, #004236, #08742f, #004236);
+}
+
+.icone-aviso {
+    width: 80px;
+    height: 80px;
+    margin-left: 28px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #009a48;
+    font-size: 40px;
+    
+}
+
+.painel-rodape strong {
+    grid-column: 2;
+    font-size: 36px;
+    text-align: center;
 }

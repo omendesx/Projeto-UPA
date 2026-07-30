@@ -7,17 +7,52 @@
     <link rel="stylesheet" href="css/painel.css">
 </head>
 <body class="panel-screen">
+    <header class="painel-cabecalho">
+        <!--Marca: símbolo e textos separados-->
+        <div class="marca">
+            <span class="marca-simbolo">
+                <img
+                src="assets/imagens/logo-prontoflow.png"
+                alt="logo-prontoflow"
+                aria-hidden="true"
+                >
+            </span>
+
+            <span class="marca-texto">
+                <strong>Pronto<span>Flow</span></strong>
+                <small>UPA</small>
+            </span>
+        </div>
+
+        <!--Título Central-->
+        <h1>PAINEL DE CHAMADAS</h1>
+
+        <!--Relógio-->
+        <div class="data-hora">
+            <div>
+                <span class="icone-relogio">◷</span>
+                <time id="relogio">10:45</time>
+            </div>
+
+            <p id="data-painel">20/06/2024 - Quinta-feira</p>
+        </div>
+    </header>
 <main>
-    <p>Paciente chamado</p>
-    <h1 id="senha">Aguardando</h1>
-    <h2 id="nome">—</h2>
-    <p id="destino">—</p>
+    <p class="chamada-titulo">🔊 CHAMADA ATUAL</p>
+    <h1 id="senha"></h1>
+    <h2 id="nome"></h2>
+    <p id="destino"></p>
 
     <section class="recentes">
         <h3>Últimos chamados</h3>
         <div id="recentes"></div>
     </section>
 </main>
+
+<footer class="painel-rodape">
+    <span class="icone-aviso">🔊</span>
+    <strong>Por favor, atenção à chamada!</strong>
+</footer>
 
 <script src="js/api.js"></script>
 <script src="js/painel.js"></script>
