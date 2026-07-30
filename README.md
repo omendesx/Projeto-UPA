@@ -49,6 +49,28 @@ Live Server separadamente.
 
 ### Front-End
 
+Para editar HTML e CSS com atualização automática, também é possível abrir a
+pasta `frontend` com o Live Server.
+
+Toda interface aberta em `localhost` ou `127.0.0.1`, tanto pelo Live Server
+quanto pelo Spring Boot, consome automaticamente a API real:
+
+`https://projeto-upa.onrender.com/api`
+
+Assim, a interface de desenvolvimento mostra os mesmos funcionários, pacientes
+e atendimentos do ambiente publicado. Cadastros, edições e exclusões feitos
+localmente também alteram esse banco. Os dados do projeto são fictícios e
+destinados ao ambiente educacional.
+
+Use `http://localhost:8080/` quando quiser testar a versão integrada, igual ao
+deploy. Se outro projeto aparecer nesse endereço, encerre o processo Java que
+estiver ocupando a porta `8080` antes de iniciar este back-end.
+
+Os funcionários exibidos no dashboard vêm de `/api/usuarios`. Já os pacientes
+das telas de triagem e consultório só aparecem depois que um atendimento é
+criado na tela de Balcão; essas telas mostram filas de atendimento, não a lista
+de usuários do sistema.
+
 Os arquivos do front-end ficam na pasta `frontend` e sÃ£o incluÃ­dos
 automaticamente pelo Maven ao executar ou empacotar o back-end.
 

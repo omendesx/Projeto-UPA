@@ -9,4 +9,8 @@ import java.util.List;
 public interface AtendimentoRepository extends JpaRepository<Atendimento, Long> {
 
     List<Atendimento> findByStatusOrderByDataHoraEntradaAsc(StatusAtendimento status);
+
+    List<Atendimento> findByStatusInOrderByDataHoraEntradaAsc(
+            List<StatusAtendimento> statuses
+    );
 }

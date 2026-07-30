@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot: Sistema UPA",
+      "request": "launch",
+      "mainClass": "com.sistemaupa.SistemaUpaApplication",
+      "projectName": "backend",
+      "cwd": "${workspaceFolder}/backend"
+    }
+  ]
+}

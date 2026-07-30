@@ -7,16 +7,20 @@ const form = document.querySelector("#formTriagem");
 const atendimentoId = document.querySelector("#atendimentoId");
 const message = document.querySelector("#message");
 
-async function carregarFila() {
-    try {
-        const atendimentos = await apiRequest("/atendimentos/fila/triagem");
+let filaTriagem = [];
+let paginaFila = 1;
 
-        if (atendimentos.length === 0) {
-            queue.innerHTML = "<p>Nenhum paciente aguardando.</p>";
-            return;
-        }
-
-        queue.innerHTML = atendimentos.map(item => `
+function renderizarFila() {
+    paginaFila = renderPaginatedList({
+        container: queue,
+        items: filaTriagem,
+        page: paginaFila,
+        emptyMessage: "Nenhum paciente aguardando.",
+        onPageChange: page => {
+            paginaFila = page;
+            renderizarFila();
+        },
+        renderItem: item => `
             <article class="list-item">
                 <strong>${item.senha} — ${item.paciente.nome}</strong>
                 <p>${item.motivo}</p>
@@ -25,7 +29,14 @@ async function carregarFila() {
                     Chamar e selecionar
                 </button>
             </article>
-        `).join("");
+        `
+    });
+}
+
+async function carregarFila() {
+    try {
+        filaTriagem = await apiRequest("/atendimentos/fila/triagem");
+        renderizarFila();
     } catch (error) {
         queue.innerHTML = `<p>${error.message}</p>`;
     }
