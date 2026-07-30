@@ -3,78 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin — Sistema UPA</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Dashboard — Sistema UPA</title>
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
-<header>
-    <h1>Dashboard do Administrador</h1>
-    <p data-current-user></p>
-    <button onclick="auth.logout()">Sair</button>
-</header>
-
-<main class="container">
-    <section class="card">
-        <h2>Áreas do sistema</h2>
-
-        <div class="grid">
-            <a class="card menu-card" href="balcao.html">Balcão</a>
-            <a class="card menu-card" href="triagem.html">Triagem</a>
-            <a class="card menu-card" href="consultorio.html">Consultório</a>
-            <a class="card menu-card" href="painel.html">Painel público</a>
+    <header class="topbar">
+        <div class="topbar-left">
+            <div class="brand-header">
+                <img class="logo-header" src="assets/imagens/logo-pronto-flow.png" alt="logo pronto flow">
+                <span class="brand-text">Pronto<span>Flow</span><small>UPA</small></span>
+            </div>
+            <span class="topbar-divider"></span>
+            <div class="topbar-title">
+                <h1>Dashboard</h1>
+                <span class="topbar-divider"></span>
+                <strong>Funcionários</strong>
+            </div>
         </div>
-    </section>
+        <div class="profile">
+            <span><img class="profile-avatar" src="assets/imagens/user-profile-avatar-svgrepo-com.svg" alt=""></span>
+            <span><b>Administrador</b><small data-current-user>Online</small></span>
+            <button class="logout" onclick="auth.logout()">Sair</button>
+        </div>
+    </header>
 
-    <section class="card">
-        <h2>Funcionários</h2>
+    <aside class="sidebar">
+        <nav class="side-nav" aria-label="Navegação principal">
+            <a class="nav-link active" href="dashboard.html"><img src="assets/imagens/dashboard-tile-setting-svgrepo-com.svg"> Dashboard</a>
+            <a class="nav-link" href="balcao.html"><img class="balcaoIMG" src="assets/imagens/person-public-svgrepo-com.svg" alt=""> Atendimentos</a>
+            <a class="nav-link" href="triagem.html"><img class="triagemIMG" src="assets/imagens/health-svgrepo-com.svg" alt=""> Triagem</a>
+            <a class="nav-link" href="consultorio.html"><img class="consultorioIMG" src="assets/imagens/health-medical-svgrepo-com.svg" alt=""> Consultas</a>
+            <a class="nav-link" href="painel.html"><img class="painelIMG" src="assets/imagens/health-monitor-computer-svgrepo-com.svg" alt=""> Painel público</a>
+        </nav>
 
-        <form id="formUsuario" class="form-grid">
-            <input id="usuarioId" type="hidden">
+        <div class="sidebar-bottom">
+            <a class="nav-link" href="index.html"><span>↩</span> Sair</a>
+            <div class="upa-badge">UPA 24h</div>
+        </div>
+    </aside>
 
-            <label>
-                Nome
-                <input name="nome" required>
-            </label>
+    <main class="app-main">
+        <div class="dashboard-content">
+            <section class="users-panel">
+                <div class="panel-heading">
+                    <span class="heading-icon">♙</span>
+                    <div>
+                        <h2>Funcionários</h2>
+                        <p>Gerencie os funcionários do sistema e defina suas permissões de acesso.</p>
+                    </div>
+                </div>
 
-            <label>
-                E-mail
-                <input name="email" type="email" required>
-            </label>
+                <div class="user-table">
+                    <div class="table-header">
+                        <span>Nome</span><span>E-mail</span><span>Cargo</span><span>Status</span><span>Ações</span>
+                    </div>
+                    <div id="usuarios" class="user-list"></div>
+                </div>
+                <p id="message" class="message"></p>
+            </section>
 
-            <label>
-                Senha
-                <input name="senha" type="text" required>
-            </label>
+            <aside class="form-panel">
+                <div class="form-heading">
+                    <span class="heading-icon">♙</span>
+                    <h2>Novo Funcionário</h2>
+                </div>
 
-            <label>
-                Cargo
-                <select name="cargo" required>
-                    <option value="RECEPCIONISTA">Recepcionista</option>
-                    <option value="ENFERMEIRO">Enfermeiro</option>
-                    <option value="MEDICO">Médico</option>
-                    <option value="ADMIN">Administrador</option>
-                </select>
-            </label>
+                <form id="formUsuario" class="form-grid">
+                    <input id="usuarioId" type="hidden">
+                    <label>Nome completo<input name="nome" placeholder="Digite o nome completo" required></label>
+                    <label>E-mail<input name="email" type="email" placeholder="Digite o e-mail" required></label>
+                    <label>Senha<input name="senha" type="text" placeholder="Digite a senha" required></label>
+                    <label>Cargo / Função
+                        <select name="cargo" required>
+                            <option value="RECEPCIONISTA">Recepcionista</option>
+                            <option value="ENFERMEIRO">Enfermeiro</option>
+                            <option value="MEDICO">Médico</option>
+                            <option value="ADMIN">Administrador</option>
+                        </select>
+                    </label>
+                    <label class="active-field">Ativo
+                        <select name="ativo"><option value="true">Sim</option><option value="false">Não</option></select>
+                    </label>
+                    <p class="form-tip">ⓘ Defina o cargo do funcionário para controlar os acessos e permissões no sistema.</p>
+                    <button type="submit">Salvar funcionário</button>
+                    <button type="button" id="cancelEdit" class="secondary-button">Limpar campos</button>
+                </form>
+            </aside>
+        </div>
+    </main>
 
-            <label>
-                Ativo
-                <select name="ativo">
-                    <option value="true">Sim</option>
-                    <option value="false">Não</option>
-                </select>
-            </label>
-
-            <button type="submit">Salvar funcionário</button>
-            <button type="button" id="cancelEdit">Cancelar edição</button>
-        </form>
-
-        <p id="message" class="message"></p>
-        <div id="usuarios" class="list"></div>
-    </section>
-</main>
-
-<script src="js/api.js"></script>
-<script src="js/auth.js"></script>
-<script src="js/dashboard.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
 </body>
 </html>
