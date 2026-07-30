@@ -4,6 +4,29 @@
     padding: 0;
     box-sizing: border-box;
 }
+.overlay {
+    
+    
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+
+
+
+
+}
+
+#slogan {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-left: 20px;
+    color: #013173;
+}
+
+
+
 
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
