@@ -1,0 +1,273 @@
+/* ========================================
+   1. BASE VISUAL DO PAINEL
+======================================== */
+:root {
+    --fundo: #010a1a;
+    --cartao: #032033;
+    --cartao-escuro: #021427;
+    --verde: #25dc68;
+    --azul: #159fff;
+    --branco: #f8f8f8;
+    --texto-suave: #9eb8d5;
+    --linha: #075078;
+    --raio: 16px;
+    --espaco: 30px;
+}
+
+/* Padronização dos tamanhos*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Tela inteira */
+
+body {
+    min-height: 100vh;
+    
+    
+    
+    color: var(--branco);
+    background: 
+    radial-gradient(circle at 30% 55%, #00483d55, transparent 35%),
+    var(--fundo);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ========================================
+   2. ESTRUTURA PRINCIPAL
+======================================== */
+
+main {
+    min-height: 0;
+    margin: 0;
+    gap: 0 var(--espaco);
+}
+
+
+
+/* Painel de chamada recentes fica a direita*/
+.recentes {
+    grid-column: 2;
+    grid-row:  1 / 5;
+    padding: 22px 28px;
+    border: 1px solid var(--linha);
+    border-radius: var(--raio);
+    background: linear-gradient(145deg, #03233a, var(--cartao-escuro));
+}
+
+/* ========================================
+   3. CARTÃO DA CHAMADA ATUAL
+======================================== */
+
+/* Fundo do cartão esquerdo*/
+
+section {
+    width: 580px;
+    height: 300px;
+    
+    border-radius: 20px;
+    border: 1px solid var(--linha);
+    border-radius: var(--raio);
+    background: linear-gradient(145deg, #03233a, var(--cartao-escuro));
+    
+}
+
+.painel-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+
+
+/* Título da chamada*/
+
+.chamada-titulo {
+  
+    align-self: end;
+    margin-top: 0;
+    color: var(--verde);
+    font-size: clamp(1rem, 1.7vw, 1.6rem);
+    font-weight: 700;
+}
+
+/*Senha principal*/
+#senha {
+    
+    align-self: center;
+    max-width: 100%;
+    
+    color: var(--verde);
+    font-size: 4rem;
+    line-height: 0.9;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 0 30px #25dc6840;
+    white-space: nowrap;
+}
+
+/* Nome do paciente */
+#nome {
+    
+    padding-bottom: 24px;
+    
+    font-size: 3rem;
+    text-align: center;
+}
+
+/*Destino */
+
+#destino {
+    
+    
+    
+    border: 1px solid #075f61;
+    border-radius: 14px;
+    color: var(--azul);
+    background: #02332f66;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* ========================================
+   4. CABEÇALHO
+======================================== */
+
+.painel-cabecalho {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    align-items: center;
+    padding-inline: 42px;
+    border-bottom: 1px solid #075078;
+    height: 120px;
+}
+
+/* Logo e nome do sistema*/
+.marca {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.marca-texto {
+    color: #013173;
+}
+
+.marca-texto span {
+    color: #019948;
+}
+/*.marca-simbolo {
+    position: relative;
+    width: 84px;
+    height: 84px;
+    flex-shrink: 0;
+    overflow: visible;
+}
+    
+.marca-texto {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.marca-texto strong {
+    font-size: 36px;
+}
+    
+.marca-texto strong span,
+.marca-texto small{
+    color: var(--verde)
+}
+
+.marca-texto small {
+    margin-top: 6px;
+    font-size: 32px;
+    font-weight: 700;
+}*/
+
+
+#logo-pronto-flow {
+    width: 150px;
+}
+
+/* ProntFlow e UPA*/
+
+
+.panel-screen {
+    margin: 0;
+}
+
+
+/* Título Central */
+.painel-cabecalho > h1 {
+    font-family: "Arial Narrow", Arial, sans-serif;
+    font-size: 48px;
+    text-align: center;
+}
+
+/* Relógio e data */
+.data-hora {
+    justify-self: end;
+    text-align: center;
+}
+
+.data-hora > div {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.icone-relogio {
+    font-size: 64px;
+    line-height: 1;
+}
+
+#relogio {
+    font-size: 58px;
+    font-weight: 700;
+}
+
+#data-painel {
+    margin-top:5px;
+    font-size: 18px;
+}
+
+/* ========================================
+   5. AVISO INFERIOR
+======================================== */
+
+.painel-rodape {
+    margin-inline: 31px;
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+    align-items: center;
+    border: 1px solid #07834d;
+    border-radius: 16px;
+    background: linear-gradient(90deg, #004236, #08742f, #004236);
+}
+
+.icone-aviso {
+    width: 80px;
+    height: 80px;
+    margin-left: 28px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #009a48;
+    font-size: 40px;
+    
+}
+
+.painel-rodape strong {
+    grid-column: 2;
+    font-size: 36px;
+    text-align: center;
+}

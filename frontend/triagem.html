@@ -1,62 +1,95 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Triagem — Sistema UPA</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/triagem.css">
 </head>
+
 <body>
+
 <header>
+    <div class="logo-container">
+        <img src="assets/imagens/logo-pronto-flow.png" alt="Sistema UPA" class="logo">
+
+        <div>
+            <p class="logo-text">Pronto<span>Flow UPA</span></p>
+            <p id="slogan">Cuidado que flui.Atendimento que salva.</p>
+        </div>
+    </div>
+
     <h1>Triagem</h1>
+
     <p data-current-user></p>
+
     <button onclick="auth.logout()">Sair</button>
 </header>
 
 <main class="container">
+
     <div class="grid">
-        <section class="card">
-            <h2>Fila da triagem</h2>
-            <button id="refreshQueue">Atualizar fila</button>
+
+        <section class="card card-queue">
+
+            <div class="card-header">
+                <h2>Fila de triagem</h2>
+                <button id="refreshQueue">Atualizar fila</button>
+            </div>
+
             <div id="queue" class="list"></div>
+
         </section>
 
-        <section class="card">
+
+        <section class="card card-form">
+
             <h2>Registrar triagem</h2>
 
             <form id="formTriagem" class="form-grid">
-                <label>
-                    Atendimento
+
+                <div class="form-group">
+                    <label for="atendimentoId">Atendimento</label>
                     <input id="atendimentoId" name="atendimentoId" readonly required>
-                </label>
+                </div>
 
-                <label class="full">
-                    Sintomas
-                    <textarea name="sintomas"></textarea>
-                </label>
+                <div class="form-group">
+                    <label for="sintomas">Sintomas</label>
+                    <textarea id="sintomas" name="sintomas"></textarea>
+                </div>
 
-                <label>
-                    Pressão
-                    <input name="pressaoArterial" placeholder="120/80">
-                </label>
+                <div class="form-row">
 
-                <label>
-                    Temperatura
-                    <input name="temperatura" type="number" step="0.1">
-                </label>
+                    <div class="form-group">
+                        <label>Pressão arterial</label>
+                        <input name="pressaoArterial" placeholder="120/80">
+                    </div>
 
-                <label>
-                    Frequência cardíaca
-                    <input name="frequenciaCardiaca" type="number">
-                </label>
+                    <div class="form-group">
+                        <label>Temperatura</label>
+                        <input name="temperatura" type="number" step="0.1" placeholder="37.0°C">
+                    </div>
 
-                <label>
-                    Nível de dor
-                    <input name="nivelDor" type="number" min="0" max="10">
-                </label>
+                </div>
 
-                <label>
-                    Classificação
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>Frequência cardíaca</label>
+                        <input name="frequenciaCardiaca" type="number" placeholder="97bpm">
+                    </div>
+
+                    <div class="form-group small">
+                        <label>Nível de dor</label>
+                        <input name="nivelDor" type="number" min="0" max="10" placeholder="0 a 10">
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label>Classificação de risco</label>
+
                     <select name="classificacaoRisco" required>
                         <option value="">Selecione</option>
                         <option value="VERMELHO">Vermelho</option>
@@ -65,23 +98,31 @@
                         <option value="VERDE">Verde</option>
                         <option value="AZUL">Azul</option>
                     </select>
-                </label>
+                </div>
 
-                <label class="full">
-                    Observação
+                <div class="form-group">
+                    <label>Observação</label>
                     <textarea name="observacao"></textarea>
-                </label>
+                </div>
 
-                <button type="submit">Salvar triagem</button>
+                <button type="submit" class="btn-salvar">
+                    Salvar triagem
+                </button>
+
             </form>
 
-            <p id="message" class="message"></p>
+            <p id="message"></p>
+
         </section>
+
     </div>
+
 </main>
 
 <script src="js/api.js"></script>
 <script src="js/auth.js"></script>
+<script src="js/pagination.js"></script>
 <script src="js/triagem.js"></script>
+
 </body>
 </html>

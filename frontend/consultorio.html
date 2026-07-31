@@ -1,94 +1,112 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultório — Sistema UPA</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consultório — Sistema UPA</title>
+  <link rel="stylesheet" href="css/consultorio.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
-<header>
-    <h1>Consultório</h1>
+  <header>
+
+    <div class="logo-container">
+      <img src="assets/imagens/logo-pronto-flow.png" alt="Sistema UPA" class="logo">
+      <div>
+        <p class="logo-text">Pronto<span>Flow UPA</span></p>
+        <p id="slogan">Cuidado que flui.Atendimento que salva.</p>
+      </div>
+
+    </div>
+    <h2>Consultório</h2>
     <p data-current-user></p>
     <button onclick="auth.logout()">Sair</button>
-</header>
+  </header>
 
-<main class="container">
+  <main class="container">
     <div class="grid">
-        <section class="card">
-            <h2>Fila médica</h2>
-            <button id="refreshQueue">Atualizar fila</button>
-            <div id="queue" class="list"></div>
-        </section>
+      <section class="card-queue">
+        <h2>Fila médica</h2>
+        <button id="refreshQueue">Atualizar fila</button>
+        <div id="queue" class="list"></div>
+      </section>
 
-        <section class="card">
-            <h2>Atendimento médico</h2>
+      <section class="card">
+        <h2>Atendimento médico</h2>
 
-            <div id="patientData" class="card">
-                Selecione um paciente.
-            </div>
+        <div id="patientData" class="card-patient">
+          Selecione um paciente.
+        </div>
 
-            <form id="formProntuario" class="form-grid">
-                <input id="atendimentoId" name="atendimentoId" type="hidden">
+        <form id="formProntuario" class="form-grid">
+          <input id="atendimentoId" name="atendimentoId" type="hidden">
 
-                <label class="full">
-                    Observação médica
-                    <textarea name="observacaoMedica"></textarea>
-                </label>
+          <label class="full">
+            Obs médica
+            <textarea name="observacaoMedica"></textarea>
+          </label>
 
-                <label class="full">
-                    Hipótese clínica
-                    <textarea name="hipoteseClinica"></textarea>
-                </label>
+          <label class="full">
+            Hipótese clínica
+            <textarea name="hipoteseClinica"></textarea>
+          </label>
 
-                <label class="full">
-                    Conduta
-                    <textarea name="conduta"></textarea>
-                </label>
+          <label class="full">
+            Conduta
+            <textarea name="conduta"></textarea>
+          </label>
 
-                <button type="submit">Salvar prontuário</button>
-            </form>
+          <button type="submit">Salvar prontuário</button>
+        </form>
 
-            <hr>
+        <hr>
 
-            <form id="formSolicitacao" class="form-grid">
-                <input id="prontuarioId" name="prontuarioId" type="hidden">
+        <form id="formSolicitacao" class="form-grid">
+          <input id="prontuarioId" name="prontuarioId" type="hidden">
 
-                <label>
-                    Tipo
-                    <select name="tipo">
-                        <option value="EXAME">Exame</option>
-                        <option value="MEDICACAO">Medicação</option>
-                        <option value="TRANSFERENCIA">Transferência</option>
-                        <option value="OBSERVACAO">Observação</option>
-                    </select>
-                </label>
+          <label>
+            Tipo
+            <select name="tipo">
+              <option value="EXAME">Exame</option>
+              <option value="MEDICACAO">Medicação</option>
+              <option value="TRANSFERENCIA">Transferência</option>
+              <option value="OBSERVACAO">Observação</option>
+            </select>
+          </label>
 
-                <label>
-                    Prioridade
-                    <select name="prioridade">
-                        <option value="NORMAL">Normal</option>
-                        <option value="ALTA">Alta</option>
-                    </select>
-                </label>
+          <label>
+            Prioridade
+            <select name="prioridade">
+              <option value="NORMAL">Normal</option>
+              <option value="ALTA">Alta</option>
+            </select>
+          </label>
 
-                <label class="full">
-                    Descrição
-                    <textarea name="descricao" required></textarea>
-                </label>
+          <label class="full">
+            Descrição
+            <textarea name="descricao" required></textarea>
+          </label>
 
-                <button type="submit">Criar solicitação</button>
-            </form>
+          <button type="submit">Criar solicitação</button>
+        </form>
 
-            <button id="finishButton">Finalizar atendimento</button>
+        <button id="finishButton">Finalizar atendimento</button>
 
-            <p id="message" class="message"></p>
-        </section>
+        <p id="message" class="message"></p>
+      </section>
     </div>
-</main>
+  </main>
 
-<script src="js/api.js"></script>
-<script src="js/auth.js"></script>
-<script src="js/consultorio.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/pagination.js"></script>
+  <script src="js/consultorio.js"></script>
 </body>
+
 </html>

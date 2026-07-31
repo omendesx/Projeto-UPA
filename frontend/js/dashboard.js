@@ -8,27 +8,34 @@ const message = document.querySelector("#message");
 const cancelEdit = document.querySelector("#cancelEdit");
 
 let cache = [];
+let paginaUsuarios = 1;
+
+function renderizarUsuarios() {
+    paginaUsuarios = renderPaginatedList({
+        container: usuarios,
+        items: cache,
+        page: paginaUsuarios,
+        emptyMessage: "Nenhum funcionário cadastrado.",
+        onPageChange: page => {
+            paginaUsuarios = page;
+            renderizarUsuarios();
+        },
+        renderItem: user => `
+            <article class="list-item">
+                <strong>${user.nome}</strong>
+                <p>${user.email}</p>
+                <p>${user.cargo} — ${user.ativo ? "Ativo" : "Inativo"}</p>
+                <button onclick="editarUsuario(${user.id})">Editar</button>
+                <button class="danger" onclick="excluirUsuario(${user.id})">Excluir</button>
+            </article>
+        `
+    });
+}
 
 async function carregarUsuarios() {
     try {
         cache = await apiRequest("/usuarios");
-
-        usuarios.innerHTML = cache.map(user => `
-            <article class="user-row">
-                <div class="user-name"><span class="user-avatar">${user.nome.charAt(0).toUpperCase()}</span>${user.nome}</div>
-                <span class="user-email">${user.email}</span>
-                <span class="cargo cargo-${user.cargo.toLowerCase()}">${user.cargo}</span>
-                <span class="status ${user.ativo ? "" : "inactive"}">${user.ativo ? "Ativo" : "Inativo"}</span>
-                <div class="actions">
-                    <button title="Editar ${user.nome}" onclick="editarUsuario(${user.id})">
-                        <img src="assets/imagens/edit-svgrepo-com.svg" alt="Editar" />
-                    </button>
-                    <button class="danger" title="Excluir ${user.nome}" onclick="excluirUsuario(${user.id})">
-                        <img src="assets/imagens/trash-full-svgrepo-com.svg" alt="Excluir" />
-                    </button>
-                </div>
-            </article>
-        `).join("");
+        renderizarUsuarios();
     } catch (error) {
         message.textContent = error.message;
     }

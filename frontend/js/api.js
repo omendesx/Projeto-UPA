@@ -1,15 +1,27 @@
-const API_URL = location.port === "5500"
-    ? "http://localhost:8080/api"
+const isDevelopmentHost =
+    ["localhost", "127.0.0.1"].includes(location.hostname);
+
+const API_URL = isDevelopmentHost
+    ? "https://projeto-upa.onrender.com/api"
     : `${location.origin}/api`;
 
 async function apiRequest(path, options = {}) {
-    const response = await fetch(`${API_URL}${path}`, {
-        headers: {
-            "Content-Type": "application/json",
-            ...(options.headers || {})
-        },
-        ...options
-    });
+    let response;
+
+    try {
+        response = await fetch(`${API_URL}${path}`, {
+            ...options,
+            headers: {
+                "Content-Type": "application/json",
+                ...(options.headers || {})
+            }
+        });
+    } catch {
+        throw new Error(
+            `Não foi possível conectar à API em ${API_URL}. ` +
+            "Confirme se o Spring Boot está iniciado."
+        );
+    }
 
     if (!response.ok) {
         let message = "Não foi possível concluir a operação.";

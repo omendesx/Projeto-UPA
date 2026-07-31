@@ -23,6 +23,8 @@ body {
     background: var(--background);
     font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     line-height: 1.5;
+    display: grid;
+    grid-template-rows: 140px 1fr 100px;
 }
 
 header {
@@ -222,4 +224,20 @@ section + section {
         display: block;
         overflow-x: auto;
     }
+}
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.pagination span {
+    white-space: nowrap;
+}
+
+.pagination button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
 }

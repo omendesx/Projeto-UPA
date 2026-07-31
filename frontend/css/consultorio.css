@@ -1,0 +1,337 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  color: #0e306b;
+  background-color: #f5f7fa;
+}
+
+header {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 0;
+}
+
+.logo {
+  width: 150px;
+  max-width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  background-color: white;
+}
+
+.logo-text {
+  margin-left: 10px;
+  color: #013173;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.logo-text span {
+  color: #019948;
+}
+
+#slogan {
+  margin-left: 10px;
+  color: #666666;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+h1 {
+  margin: 10px;
+  padding: 10px;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 50px;
+  padding: 0 20px;
+}
+
+.grid {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px auto;
+}
+.card-patient{
+  height: 100%;
+  min-width: 0;
+  max-width: 850px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+}
+.card {
+  flex: 1 1 650px;
+  min-width: 0;
+  max-width: 850px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+}
+
+.card-queue {
+  flex: 1 1 340px;
+  min-width: 300px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+}
+
+.form-grid {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px;
+}
+
+textarea {
+  width: 100%;
+  max-width: 660px;
+  min-width: 0;
+  height: 130px;
+  padding: 10px;
+  color: #0e306b;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+#patientData {
+  margin: 10px;
+}
+
+.full {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px;
+}
+
+.form-grid button {
+  width: fit-content;
+  min-width: 130px;
+  max-width: 100%;
+}
+
+#finishButton {
+  width: fit-content;
+  min-width: 170px;
+  max-width: 100%;
+  text-align: center;
+  background-color: #019948;
+}
+
+#queue.list {
+  width: calc(100% - 20px);
+  margin: 10px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.list-item {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #cccccc;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.list-item > * {
+  min-width: 0;
+}
+
+button {
+  min-height: 32px;
+  padding: 6px 12px;
+  margin: 5px;
+  color: white;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
+  cursor: pointer;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:focus-visible {
+  outline: 2px solid #013173;
+  outline-offset: 2px;
+}
+
+strong {
+  padding-right: 10px;
+  color: #0e306b;
+  font-weight: 700;
+}
+
+p {
+  min-width: 0;
+  padding-right: 10px;
+  color: #0e306b;
+  font-weight: 700;
+  overflow-wrap: break-word;
+}
+
+.patient-image {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.laranja,
+.amarelo,.vermelho,.verde,.azul {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.laranja {
+  background-color: orange;
+}
+
+.amarelo {
+  background-color: #ffd700;
+}
+.vermelho{
+  background-color: red;
+}
+.verde{
+  background-color: green;
+}
+.azul{
+  background-color: blue;
+}
+
+@media (max-width: 1450px) {
+  .full{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 1150px) {
+  .grid {
+    align-items: stretch;
+  }
+
+  .card {
+    flex-basis: 100%;
+    max-width: 850px;
+  }
+
+  .card-queue {
+    flex-basis: 100%;
+    max-width: 850px;
+
+  }
+
+}
+
+@media (max-width: 850px) {
+  header {
+    flex-wrap: wrap;
+  }
+
+  .container {
+    margin-top: 30px;
+    padding: 0 15px;
+  }
+
+  .grid {
+    margin: 15px auto;
+  }
+
+  .full {
+    justify-content: flex-start;
+  }
+}
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.pagination span {
+  white-space: nowrap;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
