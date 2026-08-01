@@ -1,66 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Chamadas — Sistema UPA</title>
-    <link rel="stylesheet" href="css/painel.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Chamadas — Sistema UPA</title>
+  <link rel="stylesheet" href="css/painel.css">
 </head>
+
 <body class="panel-screen">
-    <header class="painel-cabecalho">
-        <!--Marca: símbolo e textos separados-->
-        <div class="marca">
-            <span class="marca-simbolo">
-                <img
-                    id="logo-pronto-flow"
-                    src="assets/imagens/logo-pronto-flow.png"
-                    alt=""
-                    aria-hidden="true"
-                >
-            </span>
+  <header class="painel-cabecalho">
+    <!--Marca: símbolo e textos separados-->
+    <div class="marca">
+      <span class="marca-simbolo">
+        <img id="logo-pronto-flow" src="assets/imagens/logo-pronto-flow.png" alt="" aria-hidden="true">
+      </span>
 
-            <span class="marca-texto">
-                <strong>Pronto<span>Flow UPA</span></strong>
-               
-            </span>
-        </div>
+      <span class="marca-texto">
+        <strong>Pronto<span>Flow UPA</span></strong>
 
-        <!--Título Central-->
-        <h1>PAINEL DE CHAMADAS</h1>
+      </span>
+    </div>
 
-        <!--Relógio-->
-        <div class="data-hora">
-            <div>
-                <span class="icone-relogio">◷</span>
-                <time id="relogio">10:45</time>
-            </div>
+    <!--Título Central-->
+    <h1>PAINEL DE CHAMADAS</h1>
 
-            <p id="data-painel">20/06/2024 - Quinta-feira</p>
-        </div>
-    </header>
-<main>
+    <!--Relógio-->
+    <div class="data-hora">
+      <div>
+        <span class="icone-relogio">◷</span>
+        <time id="relogio"></time>
+      </div>
+
+      <p id="data-painel"></p>
+    </div>
+  </header>
+  <main>
     <div class="painel-container">
-        <section>
-    <p class="chamada-titulo">🔊 CHAMADA ATUAL</p>
-    <h1 id="senha"></h1>
-    <h2 id="nome"></h2>
-    <p id="destino"></p>
-    </section>
+      <section class="chamada-atual">
+        <p class="chamada-titulo">🔊 CHAMADA ATUAL</p>
+        <h1 id="senha"></h1>
+        <h2 id="nome"></h2>
+        <p id="destino"></p>
+      </section>
 
-    <section class="recentes">
+      <section class="recentes">
         <h3>Últimos chamados</h3>
         <div id="recentes"></div>
-    </section>
-</div>
-    
-</main>
+      </section>
+    </div>
+    <div class="painel-rodape">
+      <span class="icone-aviso">🔊</span>
+      <strong>Por favor, atenção à chamada!</strong>
+      <button class="btn-tema"><img src="assets/imagens/tema.png" alt="Tema" class="icone-tema"></button>
+    </div>
 
-<footer class="painel-rodape">
-    <span class="icone-aviso">🔊</span>
-    <strong>Por favor, atenção à chamada!</strong>
-</footer>
+  </main>
 
-<script src="js/api.js"></script>
-<script src="js/painel.js"></script>
+
+  <script src="js/api.js"></script>
+  <script src="js/painel.js"></script>
 </body>
+
 </html>
