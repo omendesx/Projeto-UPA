@@ -36,7 +36,7 @@
 * Java 21
 * Spring Boot
 * Spring Data JPA
-* MySQL
+* PostgreSQL (NeonDB)
 * HTML5
 * CSS3
 * JavaScript
@@ -83,17 +83,9 @@
 
 ---
 
-## 🧠 Arquitetura do Projeto
-
-```text
-
-```
-
----
-
 ## 📚 Contexto Acadêmico
 
-> Este projeto é uma atividade prática desenvolvida durante o curso **Jovem Programador**, promovido pelo **SEPROSC** em parceria com o **SENAC Santa Catarina**. Seu objetivo é consolidar conhecimentos em desenvolvimento de software utilizando Java, Spring Boot, MySQL e tecnologias web, aplicando metodologias ágeis e boas práticas de engenharia de software em um cenário inspirado no funcionamento de uma Unidade de Pronto Atendimento (UPA).
+> Este projeto é uma atividade prática desenvolvida durante o curso **Jovem Programador**, promovido pelo **SEPROSC** em parceria com o **SENAC Santa Catarina**. Seu objetivo é consolidar conhecimentos em desenvolvimento de software utilizando Java, Spring Boot, PostgreSQL e tecnologias web, aplicando metodologias ágeis e boas práticas de engenharia de software em um cenário inspirado no funcionamento de uma Unidade de Pronto Atendimento (UPA).
 
 ---
 
